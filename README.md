@@ -33,7 +33,11 @@
 * Electron 
 * Node.js
 
-# Projects
+## 그 외
+* Fluentd - Data Collector
+* Docker
+
+# Portfolio
 ## Embedded System Projects
 ### ARM 기반 데이터로거 
 Python과 Extension C를 사용하여 데이터로거에 연결된 센서 데이터 수집, 저장, 설정용 웹서버 구현
@@ -50,7 +54,7 @@ Python AST를 활용하여 사용자 제공 언어를 구현하여 직접 코딩
 * RS282 시리얼통신을 통하여 설정이 가능한 CLI 제공
 * 아날로그 센서 및 I2C, 시리얼 통신으로 센서 데이터 수집
 
-### 용접 와이어 사용량 센서, 수집 모듈
+### 용접 와이어 사용량 센서, 수집 모듈 - [RavenKyu/RotaryEncoderSensor](RavenKyu/RotaryEncoderSensor)
 스마트팩토리 프로젝트로서 용접로봇에서 사용되는 용접와이어의 사용량을 기록하는 센서와 수집 서버 개발. 라즈베리파이로 시작하였으나 대량 생산을 고려하여 단순하게 TCP/IP Socket 통신과 자체 프로토콜 제작.
 센서 동작시 로터리 엔코더 회전 길이 수집, 시간동기화, 시간보상, 미전송 데이터 보관
 * 라즈베리파이 
@@ -66,26 +70,40 @@ Python으로 손 쉽게 계층형 CLI Application 제작 가능
 
 ### MODBUS Command Line Client (Modbusclc) - [https://github.com/RavenKyu/modbus-command-line-client](https://github.com/RavenKyu/modbus-command-line-client)
 자체제작 Python CLI Framework 인 `cliparse`를 사용하여 제작한 Modbus Client
-[https://github.com/RavenKyu/cliparse](https://github.com/RavenKyu/cliparse)
-[https://github.com/RavenKyu/cliparse](https://github.com/RavenKyu/cliparse)
 * TCP/IP MODBUS 지원
 * RTU over TCP/IP 지원
 * ASCII 지원
 
-![JavaScript](https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript)
-![Nodejs](https://img.shields.io/badge/-Nodejs-black?style=flat-square&logo=Node.js)
-![Python](https://img.shields.io/badge/-Python-black?style=flat-square&logo=Python)
-![React](https://img.shields.io/badge/-React-black?style=flat-square&logo=react)
-![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3)
-![Bootstrap](https://img.shields.io/badge/-Bootstrap-563D7C?style=flat-square&logo=bootstrap)
-![MongoDB](https://img.shields.io/badge/-MongoDB-black?style=flat-square&logo=mongodb)
-![Redis](https://img.shields.io/badge/-Redis-black?style=flat-square&logo=Redis)
-![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-336791?style=flat-square&logo=postgresql)
-![MySQL](https://img.shields.io/badge/-MySQL-black?style=flat-square&logo=mysql)
-![Docker](https://img.shields.io/badge/-Docker-black?style=flat-square&logo=docker)
+### Data Collector
+다양한 장치에서 요구하는 통신방법을 지원하여 데이터를 수집한다. 일정 간격 또는 원하는 날짜시간을 지정하여 동작을 수행할 수 있도록 설정이 가능하다. 모듈은 크게 `센서 데이터 수집`,  `데이터 수집`, `분산처리`, `데이터 저장`으로 나뉘어지며 `Docker Container`로 개별 실행된다. 모든 모듈은 개별 실행 가능.
 
-![Git](https://img.shields.io/badge/-Git-black?style=flat-square&logo=git)
-![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github)
-![Raspberry Pi](https://img.shields.io/badge/-Raspberry%20Pi-C51A4A?style=flat-square&logo=Raspberry-Pi)
+* Python, Celery, Docker, Redis, InfluxDB, Fluentd, Grafana
+* MODBUS, SNMP, RESTFul API, TCP/IP Socket
+
+#### Restful MODBUS API - [https://github.com/RavenKyu/restful-modbus-api](https://github.com/RavenKyu/restful-modbus-api)
+* TCP/IP MODBUS 프로토콜을 사용하는 다수의 장치에서 데이터 수집 
+* Interval 또는 Cron 방식으로 수집 시간 지정
+* Python Code를 사용하여 수집 방식 코딩 가능
+* 수집 데이터는 RESTFul API로 제공
+
+#### RESTFul SNMP API - [https://github.com/RavenKyu/restful-snmp-api](https://github.com/RavenKyu/restful-snmp-api)
+* SNMP 프로토콜을 사용하는 다수의 장치에서 데이터 수집
+* SNMP v1, v2 지원
+* MIB 파일 지원
+* Python Code를 사용하여 수집 방식 코딩 가능
+* 수집된 데이터는 RESTFul API로 제공
+
+#### Data Collector - [https://github.com/RavenKyu/data-collector](https://github.com/RavenKyu/data-collector)
+`RESTful ... API` 모듈에서 데이터를 수집하여 Database에 넣거나 Event 처리
+
+#### Celery Work Farm - [https://github.com/RavenKyu/celery-work-farm](https://github.com/RavenKyu/celery-work-farm)
+Python Celery로 분산처리가 필요한 Task 처리
+
+### RPA 
+#### Python RPA Bot
+Python 기반 RPA Bot 제작.
+* 마우스 액션
+* 키보드 입력, 단축키
+* 이미지 매칭, OCR, 좌표찾기
+* Selenium을 이용한 웹 브라우져 사용
+
