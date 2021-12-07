@@ -12,30 +12,17 @@
 * 그 외 낮은 숙련도 - Go, TypeScript
 
 ## DB
-* SQLite
-* InfluxDB
-* MySQL
-* PostgreSQL
-* MongoDB
-* REDIS
+SQLite, InfluxDB, MySQL, PostgreSQL, MongoDB, REDIS
 
 ## Frameworks
 ### Python
-* Flask 
-* Django 
-* SQLAlchemy 
-* PyQt - Qt Binding for Python
-* FastAPI 
-* Celery 
+Flask, Django, SQLAlchemy, PyQt, FastAPI, Celery 
 
 ### Javascript
-* React
-* Electron 
-* Node.js
+React, Electron, Node.js
 
 ## 그 외
-* Fluentd - Data Collector
-* Docker
+Fluentd, Docker
 
 # Portfolio
 ## Embedded System Projects
